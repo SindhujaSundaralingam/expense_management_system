@@ -15,7 +15,6 @@ class AddCategoryFormView extends React.Component {
         } else {
             alert('Category Already Exists')
         }
-        
     }
     render() {
         return (

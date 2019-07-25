@@ -1,4 +1,6 @@
 export * from './AddCategoryFormView'
 export * from './CategoryListView'
+export * from './ExpenseDetailTableView'
+export * from './ModalPopUpView'
 export * from './SectionNav'
 export * from './UpdateBudgetFormView'
