@@ -1,17 +1,23 @@
 import React from 'react'
-import { Button, Card, Container, ListGroup, Row, Col } from 'react-bootstrap'
+import { Button, Card, Container, ListGroup, Modal, Row, Col } from 'react-bootstrap'
 import { observer } from 'mobx-react'
 import state from '../state'
 
 class CategoryListView extends React.Component {
-    handleDelete = category => {
+    handleDelete = () => {
        state.categoryList = state.categoryList.filter(item => {
-           return item !== category
+           return item !== state.category
        })
+       this.toggleDeleteModal()
     }
+    toggleDeleteModal = (category) => {
+        state.category = category
+        state.isDeleteModalVisibile = !state.isDeleteModalVisibile
+    }
+
     renderCategoryList = category => {
         return (
-            <ListGroup.Item>
+            <ListGroup.Item className="categorylistgroupitem">
                 <Container>
                     <Row>
                         <Col>
@@ -19,7 +25,7 @@ class CategoryListView extends React.Component {
                         </Col>
                         <Col>
                             <Button onClick={() => {
-                                this.handleDelete(category)
+                                this.toggleDeleteModal(category)
                             }}>Delete</Button>
                         </Col>
                     </Row>
@@ -31,12 +37,30 @@ class CategoryListView extends React.Component {
         const categoryList = state.categoryList.map(this.renderCategoryList)
         return (
             <Container>
-                <Card>
-                    <Card.Header>Category List</Card.Header>
+                <Card className="categorylistcard">
                     <ListGroup>
                         {categoryList}
                     </ListGroup>
                 </Card>
+                <Modal show={state.isDeleteModalVisibile} onHide={this.toggleDeleteModal}>
+                    <Modal.Body>
+                        <Container>
+                            <Row className="m-3">
+                            <Col>
+                                <span className="col"> Are you sure you want to delete the category? </span>
+                            </Col>
+                            </Row>
+                            <Row className="m-3">
+                            <Col>
+                                <Button variant="outline-primary" onClick={this.handleDelete} className="col deletemodalbutton"> Yes </Button>
+                            </Col>
+                            <Col>
+                                <Button variant="outline-secondary" onClick={this.toggleDeleteModal} className="col deletemodalbutton"> No </Button>
+                            </Col>
+                            </Row>
+                        </Container>
+                    </Modal.Body>
+                </Modal>
             </Container>
         )
     }

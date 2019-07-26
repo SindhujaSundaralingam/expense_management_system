@@ -17,14 +17,14 @@ class HomePageView extends React.PureComponent {
                 <Row>
                 </Row>
                 <Row>
-                    <Col>
+                    <Col className="mt-5 mb-5">
                         <Button onClick={toggleModalPopup}> Add Expense </Button>
                         <ModalPopUp show={state.isModalVisible} onHide={toggleModalPopup}/>
                     </Col>
                 </Row>
                 <Row>
                     <Col>
-                        <ExpenseDetailView />
+                        {state.expenseDetails.length > 0 && <ExpenseDetailView />}
                     </Col>
                 </Row>
             </Container>

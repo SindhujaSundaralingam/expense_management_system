@@ -3,6 +3,7 @@ import { observer } from 'mobx-react'
 import { Form, Button, Row, Col, Card } from 'react-bootstrap'
 import { Formik } from 'formik'
 import state from '../state'
+import './style.css'
 
 class UpdateBudgetFormView extends React.Component { 
     handleSubmit = (formData) => {
@@ -11,7 +12,7 @@ class UpdateBudgetFormView extends React.Component {
     }
     render() {
         return (
-            <Card>
+            <Card className="budgetcard">
                 <Card.Body>
                     <Formik onSubmit={this.handleSubmit}>
                     {({
@@ -25,15 +26,15 @@ class UpdateBudgetFormView extends React.Component {
                       }) => (
                     <Form onSubmit={handleSubmit}>
                         <Form.Group as={Row} controlId="totalBudget">
-                            <Form.Label column>Total Budget</Form.Label>
-                            <Col>
+                            <Form.Label column className="col-md-3">Total Budget</Form.Label>
+                            <Col className="col-md-3">
                                 <Form.Control type="number" name="totalBudget" value={values.totalBudget} onChange={handleChange} />
                             </Col>
-                            <Col>
-                            <Button variant="primary" type="submit">
-                                Update
-                            </Button>
-                        </Col>
+                            <Col className="col-md-3">
+                                <Button className="updatebutton" variant="primary" type="submit">
+                                    Update
+                                </Button>
+                            </Col>
                         </Form.Group>
                     </Form>)}
                     </Formik>

@@ -3,6 +3,7 @@ import { observer } from 'mobx-react'
 import { Card, Form, Button, Row, Col } from 'react-bootstrap'
 import { Formik } from 'formik'
 import state from '../state'
+import { addFormSchema } from './schema'
 
 class AddExpenseFormView extends React.Component {
 
@@ -38,7 +39,7 @@ class AddExpenseFormView extends React.Component {
         return (
             <Card>
                 <Card.Body>
-                    <Formik initialValues={state.initialExpense} onSubmit={this.handleSubmit}>
+                    <Formik initialValues={state.initialExpense} onSubmit={this.handleSubmit} validationSchema={addFormSchema}>
                     {({
                         handleSubmit,
                         handleChange,

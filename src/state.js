@@ -7,6 +7,8 @@ class State {
     expenseDetails = []
     initialExpense= {}
     isAddExpenseForm = true
+    isDeleteModalVisibile = false
+    category = ''
 }
 
 decorate(State,{
@@ -16,6 +18,8 @@ decorate(State,{
     expenseDetails: observable,
     initialExpense: observable,
     isAddExpenseForm: observable,
+    isDeleteModalVisibile: observable,
+    category: observable,
 })
 
 const state = new State()

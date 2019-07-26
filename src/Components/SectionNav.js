@@ -24,8 +24,8 @@ class SectionNav extends React.PureComponent {
     render() {
         const { menuList } = this.props
         return (
-            <aside>
-                <Card>
+            <aside className="menuaside">
+                <Card className="menulist">
                     <ListGroup>
                         {menuList.map(this.renderMenuList)}
                     </ListGroup>

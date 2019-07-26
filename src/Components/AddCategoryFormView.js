@@ -18,7 +18,7 @@ class AddCategoryFormView extends React.Component {
     }
     render() {
         return (
-            <Card>
+            <Card className="categorycard">
                 <Card.Body>
                     <Formik onSubmit={this.handleSubmit}>
                     {({
@@ -28,12 +28,12 @@ class AddCategoryFormView extends React.Component {
                       }) => (
                     <Form onSubmit={handleSubmit}>
                         <Form.Group as={Row} controlId="addCategory">
-                            <Form.Label column>Categories</Form.Label>
-                            <Col>
+                            <Form.Label column className="col-md-3">Categories</Form.Label>
+                            <Col className="col-md-3">
                                 <Form.Control type="test" name="category" value={values.category} onChange={handleChange} />
                             </Col>
-                            <Col>
-                            <Button variant="primary" type="submit">
+                            <Col className="col-md-3">
+                            <Button className="addbutton" variant="primary" type="submit">
                                 Add
                             </Button>
                         </Col>
