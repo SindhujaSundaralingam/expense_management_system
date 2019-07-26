@@ -1,6 +1,6 @@
 import React from 'react'
 import { observer } from 'mobx-react'
-import { Card, Form, Button, Row, Col } from 'react-bootstrap'
+import { Card, Form, Button } from 'react-bootstrap'
 import { Formik } from 'formik'
 import state from '../state'
 import { addFormSchema } from './schema'
@@ -25,6 +25,14 @@ class AddExpenseFormView extends React.Component {
             state.expenseDetails[indexValue].amount = amount
             state.expenseDetails[indexValue].date = date
         }
+        if(state.expenseDetails.length <= 5) {
+            state.currentExpenseDetails = state.expenseDetails
+        } else {
+            const currentPage = state.currentPage
+            const offset = ( currentPage - 1) * 5
+            state.currentExpenseDetails = state.expenseDetails.slice(offset, offset + 5)
+        }
+
         state.initialExpense = {}
         state.isModalVisible = false
         state.isAddExpenseForm = true
@@ -45,7 +53,7 @@ class AddExpenseFormView extends React.Component {
                         handleChange,
                         values,
                         errors,
-                        touched
+                        touched,
                       }) => (
                     <Form onSubmit={handleSubmit}>
                         <Form.Group controlId="addExpense">

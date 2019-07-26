@@ -1,8 +1,8 @@
 import React from 'react'
 import { observer } from 'mobx-react'
 import { Button, Container, Row, Col } from 'react-bootstrap'
-import { ModalPopUp, ExpenseDetailView } from '../../Components'
-import state from '../../state'
+import { ModalPopUp, ExpenseDetailView, PaginationView } from '../Components'
+import state from '../state'
 
 const toggleModalPopup = () => {
     state.isModalVisible = !state.isModalVisible
@@ -25,6 +25,11 @@ class HomePageView extends React.PureComponent {
                 <Row>
                     <Col>
                         {state.expenseDetails.length > 0 && <ExpenseDetailView />}
+                    </Col>
+                </Row>
+                <Row>
+                    <Col>
+                        {state.expenseDetails.length > 6 && <PaginationView />}
                     </Col>
                 </Row>
             </Container>

@@ -9,6 +9,8 @@ class State {
     isAddExpenseForm = true
     isDeleteModalVisibile = false
     category = ''
+    currentExpenseDetails = []
+    currentPage = 1
 }
 
 decorate(State,{
@@ -20,6 +22,8 @@ decorate(State,{
     isAddExpenseForm: observable,
     isDeleteModalVisibile: observable,
     category: observable,
+    currentExpenseDetails: observable,
+    currentPage: observable,
 })
 
 const state = new State()

@@ -15,7 +15,7 @@ class SectionNav extends React.PureComponent {
         const { name, url } = menu
         return (
             <ListGroup.Item>
-                <NavLink to={url}>
+                <NavLink to={url} className='menu-tab'>
                     <div> {name} </div>
                 </NavLink>
             </ListGroup.Item>

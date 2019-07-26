@@ -2,6 +2,7 @@ import React from 'react'
 import { Button, Card, Container, ListGroup, Modal, Row, Col } from 'react-bootstrap'
 import { observer } from 'mobx-react'
 import state from '../state'
+import { DeleteIcon } from '../icons'
 
 class CategoryListView extends React.Component {
     handleDelete = () => {
@@ -20,13 +21,13 @@ class CategoryListView extends React.Component {
             <ListGroup.Item className="categorylistgroupitem">
                 <Container>
                     <Row>
-                        <Col>
+                        <Col className="col-6">
                             <span>{category}</span>
                         </Col>
-                        <Col>
-                            <MDBIcon icon="trash"onClick={() => {
+                        <Col className="col-6">
+                            <div className="delete-icon" onClick={() => {
                                 this.toggleDeleteModal(category)
-                            }} />
+                            }}><DeleteIcon /></div>
                         </Col>
                     </Row>
                 </Container>
@@ -50,12 +51,10 @@ class CategoryListView extends React.Component {
                                 <span className="col"> Are you sure you want to delete the category? </span>
                             </Col>
                             </Row>
-                            <Row className="m-3">
-                            <Col>
-                                <Button variant="outline-primary" onClick={this.handleDelete} className="col deletemodalbutton"> Yes </Button>
-                            </Col>
-                            <Col>
-                                <Button variant="outline-secondary" onClick={this.toggleDeleteModal} className="col deletemodalbutton"> No </Button>
+                            <Row>
+                            <Col className="delete-modal-buttons">
+                                <Button variant="outline-primary" onClick={this.handleDelete} className="mr-3 px-5 deletemodalbutton"> Yes </Button>
+                                <Button variant="outline-secondary" onClick={this.toggleDeleteModal} className="px-5 deletemodalbutton"> No </Button>
                             </Col>
                             </Row>
                         </Container>

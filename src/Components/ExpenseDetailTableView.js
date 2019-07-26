@@ -1,7 +1,7 @@
 import React from 'react'
 import { observer } from 'mobx-react'
-import { Table, Button, Card } from 'react-bootstrap'
 import state from '../state'
+import { EditIcon } from '../icons'
 
 class ExpenseDetailTableView extends React.Component {
 
@@ -15,34 +15,33 @@ class ExpenseDetailTableView extends React.Component {
         const { category, item, amount, date } = expenseItem
         expenseItem.index = index
         return (
-            <tr className="expensedetailrow" >
-                <td>{category}</td>
-                <td>{item}</td>
-                <td>{amount}</td>
-                <td>{date}</td>
-                <td>
-                    <Button onClick={() => this.handleEdit(expenseItem)}> Edit </Button>
-                </td>
-            </tr>
+            <div class="table-data">
+                <div className="edit-icon" onClick={() => this.handleEdit(expenseItem)}>
+                    <EditIcon />
+                </div>
+                <span>{category}</span>
+                <span>{item}</span>
+                <span>{amount}</span>
+                <span>{date}</span>
+            </div>
         )
     }
     render() {
-        const expenseDetailList = state.expenseDetails.map(this.renderExpenseDetails)
+        const expenseDetailList = state.currentExpenseDetails.map(this.renderExpenseDetails)
         return (
-            <Table responsive="sm" borderless>
-                <thead>
-                    <tr>
-                    <th>Category</th>
-                    <th>Item name</th>
-                    <th>Amount</th>
-                    <th>Expense date</th>
-                    <th></th>
-                    </tr>
-                </thead>
-                <tbody>
+            <div class="table-layout">
+                <div class="table-header">
+                <div class="table-header-data">
+                    <h3>Category</h3>
+                    <h3>Item name</h3>
+                    <h3>Amount</h3>
+                    <h3>Expense date</h3>
+                </div>
+                </div>
+                <div class="table-body">
                     {expenseDetailList}
-                </tbody>
-            </Table>
+                </div>
+            </div>
         )
     }
 }

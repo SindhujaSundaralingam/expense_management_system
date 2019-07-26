@@ -44,3 +44,52 @@
     margin-left: 300px;
     z-index: 0;
 }
+
+.table-layout {
+    position: relative;
+  }
+  .table-layout .table-header .table-header-data {
+    padding: 16px 12px;
+    display: flex;
+    flex-direction: row;
+  }
+  .table-layout .table-header .table-header-data h3 {
+    margin: 0;
+    flex: 1;
+  }
+  .table-layout .table-body {
+    position: relative;
+  }
+  .table-layout .table-body .table-data {
+    padding: 12px;
+    position: relative;
+    border: solid 1px #ccc;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 12px;
+  }
+  .table-layout .table-body .table-data span {
+    flex: 1;
+  }
+
+  .edit-icon svg,
+  .delete-icon   svg{
+    height: 20px;
+  }
+
+  .edit-icon,
+  .delete-icon {
+    display: flex;
+  }
+
+  .delete-modal-buttons {
+      display: flex;
+      justify-content: center;
+      width: 100%;
+      margin-top: 24px;
+  }
+
+  .menu-tab {
+      color: black
+  }

@@ -26,13 +26,14 @@ class AddCategoryFormView extends React.Component {
                         handleSubmit,
                         handleChange,
                         values,
+                        touched,
                         errors,
                       }) => (
                     <Form onSubmit={handleSubmit}>
                         <Form.Group as={Row} controlId="addCategory">
                             <Form.Label column className="col-md-3">Categories</Form.Label>
                             <Col className="col-md-3">
-                                <Form.Control type="test" name="category" value={values.category} onChange={handleChange} isInvalid={errors.category} />
+                                <Form.Control type="test" name="category" value={values.category} onChange={handleChange} isInvalid={errors.category && touched.category} />
                                 <Form.Control.Feedback type="invalid">
                                     {errors.category}
                                 </Form.Control.Feedback>

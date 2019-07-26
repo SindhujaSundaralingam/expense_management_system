@@ -1,6 +1,6 @@
 import React from 'react'
 
-const deleteIcon = () => {
+const DeleteIcon = () => {
 return (
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 486 486" width="486" height="486">
         <g>
@@ -19,5 +19,5 @@ return (
     )
 }
 
-export default deleteIcon
-export { deleteIcon }
+export default DeleteIcon
+export { DeleteIcon }

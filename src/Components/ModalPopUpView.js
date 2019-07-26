@@ -1,6 +1,6 @@
 import React from 'react'
 import { observer } from 'mobx-react'
-import { Modal, Container, Row, Col, Button } from 'react-bootstrap'
+import { Modal, Container } from 'react-bootstrap'
 import { AddExpenseForm } from './AddExpenseFormView'
 
 class ModalPopUpView extends React.Component {
