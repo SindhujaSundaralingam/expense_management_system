@@ -35,7 +35,7 @@ class AddExpenseFormView extends React.Component {
             state.expenseDetails[indexValue].amount = amount
             state.expenseDetails[indexValue].date = date
         }
-
+        this.handlePaginationData()
         state.initialExpense = {}
         state.isModalVisible = false
         state.isAddExpenseForm = true

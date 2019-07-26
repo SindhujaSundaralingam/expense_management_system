@@ -15,7 +15,7 @@ class ExpenseDetailTableView extends React.Component {
         const { category, item, amount, date } = expenseItem
         expenseItem.index = index
         return (
-            <div class="table-data">
+            <div className="table-data">
                 <div className="edit-icon" onClick={() => this.handleEdit(expenseItem)}>
                     <EditIcon />
                 </div>
@@ -29,16 +29,16 @@ class ExpenseDetailTableView extends React.Component {
     render() {
         const expenseDetailList = state.currentExpenseDetails.map(this.renderExpenseDetails)
         return (
-            <div class="table-layout">
-                <div class="table-header">
-                <div class="table-header-data">
+            <div className="table-layout">
+                <div className="table-header">
+                <div className="table-header-data">
                     <h3>Category</h3>
                     <h3>Item name</h3>
                     <h3>Amount</h3>
                     <h3>Expense date</h3>
                 </div>
                 </div>
-                <div class="table-body">
+                <div className="table-body">
                     {expenseDetailList}
                 </div>
             </div>

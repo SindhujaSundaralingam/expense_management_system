@@ -29,7 +29,7 @@ class HomePageView extends React.PureComponent {
                 </Row>
                 <Row>
                     <Col>
-                        {state.expenseDetails.length > 6 && <PaginationView />}
+                        {state.expenseDetails.length > 5 && <PaginationView />}
                     </Col>
                 </Row>
             </Container>
