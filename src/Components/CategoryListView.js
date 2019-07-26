@@ -24,9 +24,9 @@ class CategoryListView extends React.Component {
                             <span>{category}</span>
                         </Col>
                         <Col>
-                            <Button onClick={() => {
+                            <MDBIcon icon="trash"onClick={() => {
                                 this.toggleDeleteModal(category)
-                            }}>Delete</Button>
+                            }} />
                         </Col>
                     </Row>
                 </Container>

@@ -44,26 +44,40 @@ class AddExpenseFormView extends React.Component {
                         handleSubmit,
                         handleChange,
                         values,
+                        errors,
+                        touched
                       }) => (
                     <Form onSubmit={handleSubmit}>
                         <Form.Group controlId="addExpense">
                             <Form.Label column>Categories</Form.Label>
-                            <Form.Control as="select" name="category" value={values.category} onChange={handleChange} >
+                            <Form.Control as="select" name="category" value={values.category} onChange={handleChange} isInvalid={errors.category}>
                                 <option value=''> Select any category</option>
                                 {optionView}
                             </Form.Control>
+                            <Form.Control.Feedback type="invalid">
+                                {errors.category}
+                            </Form.Control.Feedback>
                         </Form.Group>
                         <Form.Group>
                             <Form.Label column>Item Name</Form.Label>
-                            <Form.Control type="text" name="item" value={values.item} onChange={handleChange} />
+                            <Form.Control type="text" name="item" value={values.item} onChange={handleChange} isInvalid={errors.item} />
+                            <Form.Control.Feedback type="invalid">
+                                {errors.item}
+                            </Form.Control.Feedback>
                         </Form.Group>
                         <Form.Group>
                             <Form.Label column>Amount</Form.Label>
-                            <Form.Control type="number" name="amount" value={values.amount} onChange={handleChange} />
+                            <Form.Control type="number" name="amount" value={values.amount} onChange={handleChange} isInvalid={errors.amount} />
+                            <Form.Control.Feedback type="invalid">
+                                {errors.amount}
+                            </Form.Control.Feedback>
                         </Form.Group>
                         <Form.Group>
                             <Form.Label column>Date</Form.Label>
-                            <Form.Control type="date" name="date" value={values.date} onChange={handleChange} />
+                            <Form.Control type="date" name="date" value={values.date} onChange={handleChange} isInvalid={errors.date} />
+                            <Form.Control.Feedback type="invalid">
+                                {errors.date}
+                            </Form.Control.Feedback>
                         </Form.Group>
                         <Button variant="primary" type="submit">
                             {state.isAddExpenseForm ? 'Add' : 'Update'}

@@ -32,3 +32,15 @@
 .expensedetailrow {
     border: 1px solid #c1bdbd;
 }
+
+.aside-menu {
+    position: fixed;
+    height: 100%;
+    width: 300px;
+    z-index: 1; 
+}
+
+.content {
+    margin-left: 300px;
+    z-index: 0;
+}

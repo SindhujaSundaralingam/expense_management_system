@@ -33,9 +33,9 @@ class ExpenseDetailTableView extends React.Component {
                 <thead>
                     <tr>
                     <th>Category</th>
-                    <th>Item</th>
+                    <th>Item name</th>
                     <th>Amount</th>
-                    <th>Date</th>
+                    <th>Expense date</th>
                     <th></th>
                     </tr>
                 </thead>

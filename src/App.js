@@ -8,20 +8,18 @@ import './App.css';
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <div>
+      <div className="app-wrapper">
           <Router>
               <Row>
-                <Col className="col-4">
+                <Col className="col-4 aside-menu">
                   <SectionNav />
                 </Col>
-                <Col className="col-8">
+                <Col className="col-8 content">
                   <Route path='/' exact component={HomePage} />
                   <Route path='/settings' component={SettingsPage} />
                 </Col>
               </Row>
           </Router>
-        </div>
       </div>
     );
   }
