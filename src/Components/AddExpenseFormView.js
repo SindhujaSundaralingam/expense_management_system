@@ -7,6 +7,16 @@ import { addFormSchema } from './schema'
 
 class AddExpenseFormView extends React.Component {
 
+    handlePaginationData = () => {
+        if(state.expenseDetails.length <= 5) {
+            state.currentExpenseDetails = state.expenseDetails
+        } else {
+            const currentPage = state.currentPage
+            const offset = ( currentPage - 1) * 5
+            state.currentExpenseDetails = state.expenseDetails.slice(offset, offset + 5)
+        }
+    }
+
     handleSubmit = (formData) => {
         const {category, item, amount, date} = formData
         if(state.isAddExpenseForm) {
@@ -24,13 +34,6 @@ class AddExpenseFormView extends React.Component {
             state.expenseDetails[indexValue].item = item
             state.expenseDetails[indexValue].amount = amount
             state.expenseDetails[indexValue].date = date
-        }
-        if(state.expenseDetails.length <= 5) {
-            state.currentExpenseDetails = state.expenseDetails
-        } else {
-            const currentPage = state.currentPage
-            const offset = ( currentPage - 1) * 5
-            state.currentExpenseDetails = state.expenseDetails.slice(offset, offset + 5)
         }
 
         state.initialExpense = {}
@@ -53,7 +56,6 @@ class AddExpenseFormView extends React.Component {
                         handleChange,
                         values,
                         errors,
-                        touched,
                       }) => (
                     <Form onSubmit={handleSubmit}>
                         <Form.Group controlId="addExpense">

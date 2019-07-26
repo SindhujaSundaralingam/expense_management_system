@@ -1,8 +1,9 @@
 import React from 'react'
-import { Button, Card, Container, ListGroup, Modal, Row, Col } from 'react-bootstrap'
+import { Card, Container, ListGroup, Row, Col } from 'react-bootstrap'
 import { observer } from 'mobx-react'
 import state from '../state'
 import { DeleteIcon } from '../icons'
+import { DeleteModalView } from './DeleteModalView'
 
 class CategoryListView extends React.Component {
     handleDelete = () => {
@@ -43,23 +44,7 @@ class CategoryListView extends React.Component {
                         {categoryList}
                     </ListGroup>
                 </Card>
-                <Modal show={state.isDeleteModalVisibile} onHide={this.toggleDeleteModal}>
-                    <Modal.Body>
-                        <Container>
-                            <Row className="m-3">
-                            <Col>
-                                <span className="col"> Are you sure you want to delete the category? </span>
-                            </Col>
-                            </Row>
-                            <Row>
-                            <Col className="delete-modal-buttons">
-                                <Button variant="outline-primary" onClick={this.handleDelete} className="mr-3 px-5 deletemodalbutton"> Yes </Button>
-                                <Button variant="outline-secondary" onClick={this.toggleDeleteModal} className="px-5 deletemodalbutton"> No </Button>
-                            </Col>
-                            </Row>
-                        </Container>
-                    </Modal.Body>
-                </Modal>
+                <DeleteModalView show={state.isDeleteModalVisibile} onHide={this.toggleDeleteModal} onDelete={this.handleDelete} />
             </Container>
         )
     }

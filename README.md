@@ -1,4 +1,18 @@
+### Expense Management System 
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+### `yarn install`
+
+Before running build in local make sure to execute command 'yarn install' to install dependencies
+
+### Packages Used
+
+    mobx-react - for state mangement
+    react-router-dom - for routing
+    react-bootstrap - for responsive UI
+    formik - for Forms and their state management
+    yup - for form validation
 
 ## Available Scripts
 
